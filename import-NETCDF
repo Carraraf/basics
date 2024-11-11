@@ -1,0 +1,10 @@
+import xarray as xr
+
+ds = xr.open_dataset("C:/PATCH") #Create a variable that opened the dataset in NETCDF
+data_var = ds.metpy.parse_cf('VARIABLE') #Search all the data and orientation by Variable
+data_var #Variables explorer, shows its variables
+
+#Apply (X, Y, Time) to Variables (Lon, Lat, Time)
+x = data_var['longitude'].values
+y = data_var['latitude'].values
+time = data_var['time'].values
